@@ -1,0 +1,188 @@
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~
+$ mkdir GitTask
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~
+$ cd GitTask/
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask
+$ git init
+Initialized empty Git repository in C:/Users/Kajal Padhiyar/GitTask/.git/
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (master)
+$ git checkout -b Dev
+Switched to a new branch 'Dev'
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Dev)
+$ notepad First.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Dev)
+$ git add First.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Dev)
+$ git commit -m "My First text file"
+[Dev (root-commit) a1ac904] My First text file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 First.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Dev)
+$ git checkout -b Test
+Switched to a new branch 'Test'
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ notepad Second.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ notepad Third.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git add Second.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git commit -m "Added Second.txt file"
+[Test ffbf840] Added Second.txt file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Second.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git status
+On branch Test
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Third.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git add Third.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git commit -m "Added Third.txt file"
+[Test f545596] Added Third.txt file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Third.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git status
+On branch Test
+nothing to commit, working tree clean
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git checkout -b Dev
+fatal: A branch named 'Dev' already exists.
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git status
+On branch Test
+nothing to commit, working tree clean
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ notepad First.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git diff
+diff --git a/First.txt b/First.txt
+index f173bd3..35fec96 100644
+--- a/First.txt
++++ b/First.txt
+@@ -1 +1 @@
+-This is my First text file inside Dev Branch
+\ No newline at end of file
++Hello!....This is my First text file inside Dev Branch
+\ No newline at end of file
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git status
+On branch Test
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   First.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git add First.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git commit -m "Changed message in First.txt file"
+[Test 31acaaa] Changed message in First.txt file
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git status
+On branch Test
+nothing to commit, working tree clean
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git checkout master
+error: pathspec 'master' did not match any file(s) known to git
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (Test)
+$ git checkout -b master
+Switched to a new branch 'master'
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (master)
+$ git merge Dev
+Already up to date.
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (master)
+$ git merge Test
+Already up to date.
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (master)
+$ git branch
+  Dev
+  Test
+* master
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (master)
+$ git remote add origin https://github.com/kajalpadhiyar/GitTask.git
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTask (master)
+$ git push -u origin master
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (12/12), 1.13 KiB | 96.00 KiB/s, done.
+Total 12 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/kajalpadhiyar/GitTask.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~
+$ mkdir GitTasknew
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~
+$ cd GitTasknew/
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTasknew
+$ git clone https://github.com/kajalpadhiyar/GitTask.git
+Cloning into 'GitTask'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 12 (delta 1), reused 12 (delta 1), pack-reused 0
+Receiving objects: 100% (12/12), done.
+Resolving deltas: 100% (1/1), done.
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTasknew
+$ ls
+GitTask/
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTasknew
+$ cd GitTask/
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTasknew/GitTask (master)
+$ ls
+First.txt  Second.txt  Third.txt
+
+Kajal Padhiyar@DESKTOP-TIL3HD0 MINGW64 ~/GitTasknew/GitTask (master)
+$ notepad Solution.txt
